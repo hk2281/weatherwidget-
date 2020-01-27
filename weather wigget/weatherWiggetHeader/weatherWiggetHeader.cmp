@@ -1,0 +1,14 @@
+<aura:component >
+  <lightning:layout class="slds-page-header slds-page-header--object-home">
+        <lightning:layoutItem >
+            <lightning:icon iconName="custom:custom3" alternativeText="weather"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading--label">The weather</h1>
+                <h2 class="slds-text-heading--medium">wigget</h2>
+                
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

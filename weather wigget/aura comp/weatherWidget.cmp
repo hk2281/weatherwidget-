@@ -1,0 +1,52 @@
+<aura:component  controller="myWeatherContr" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global"  >
+  	<c:weatherWidgetHeader /> 
+    <aura:attribute name="KeyCity" type="String" />
+    <aura:attribute name="image" type="String" /> 
+    <aura:attribute name="store" type="String" /> 
+    <aura:attribute name="get" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="lable" type="String"  default="{!'set city, default ('+v.store+')'}"/>
+    <fieldset class="slds-box slds-theme--default  slds-size_max-medium">    
+    	<lightning:layout class="slds-align_absolute-center" verticalAlign="end">
+            <lightning:layoutItem flexibility="grow" >
+            	<lightning:input aura:id="City"
+                                 type="text"
+                                 messageWhenValueMissing="Your message"
+                                 name="City"
+                                 placeholder="{!v.lable}"
+                                 value="{!v.KeyCity}" /> 
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-left_x-small">
+            	<lightning:button label="search" title="Neutral action" onclick="{!c.handleClick}"/>
+            </lightning:layoutItem>
+   		 </lightning:layout>
+		<lightning:layout verticalAlign="middle" >
+            <lightning:layoutItem padding="around-small" flexibility="auto" size="7">
+                <lightning:formattedText class="slds-text-heading_large" value="{!v.get.name}" />
+                <br/>
+                <lightning:formattedText class="slds-text-heading_medium" value="{!v.get.mainnn}" />
+                <div class="temp">
+                    <img src="{!v.image}" />
+                    <lightning:formattedText class="deg" value="{!v.get.main.temp}" />
+                </div>
+            </lightning:layoutItem> 
+            <lightning:layoutItem padding="around-small" class="slds-m-top_xxx-small" >
+                <div class="inf">
+                    <lightning:formattedText value="{!v.get.main.feels_like}" />
+                    <br/>
+                    <lightning:formattedText value="{!v.get.wind.speed}"/>
+                    <br/>
+                    <lightning:formattedText value="{!v.get.main.pressure}"/> 
+                    <br/>
+                    <lightning:formattedText  value="{!v.get.main.humidity}" />
+                	<br/>
+                	<lightning:formattedText  value="{!v.get.coord.lon}"/>
+                    <br/>
+                	<lightning:formattedText  value="{!v.get.sys.sunrise}"/>
+                    <br/>
+                	<lightning:formattedText  value="{!v.get.sys.sunset}"/>
+                </div>
+            </lightning:layoutItem>
+		</lightning:layout>            
+    </fieldset>
+</aura:component>

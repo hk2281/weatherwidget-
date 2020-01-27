@@ -1,0 +1,11 @@
+.THIS .slds-form-element__label {
+      display : none;
+      visibility : hidden;
+}
+.THIS .deg{
+   font-size: 45px;
+    vertical-align: middle;
+}
+.THIS .inf{
+    font-size: 14px;
+}
